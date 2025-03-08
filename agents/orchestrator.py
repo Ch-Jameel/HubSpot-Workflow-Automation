@@ -243,21 +243,51 @@ class OrchestratorAgent:
                                 notification["body"],
                                 notification["is_html"]
                             )
+
                     elif function_name == "update_lead":
+                        # Check if properties is directly in function_args or nested
+                        properties = function_args.get("properties", {})
+                        if not properties and isinstance(function_args, dict):
+                            # If properties isn't a separate key, the entire function_args might be the properties
+                            # Remove lead_id if it exists since it's not a property
+                            properties = function_args.copy()
+                            if "lead_id" in properties:
+                                del properties["lead_id"]
+                        
                         output = self.hubspot_agent.update_lead(
                             function_args["lead_id"],
-                            function_args["properties"]
+                            properties
                         )
                         
                         # If lead was updated successfully, send notification
                         if output["status"] == "success":
-                            notification = self.email_agent.create_update_notification(function_args["properties"])
+                            notification = self.email_agent.create_update_notification(properties)
+                            # Find email either in properties or use a default
+                            email = properties.get("email")
+                            if not email and "lead_id" in function_args:
+                                # Could try to get email from the lead_id but would need an additional API call
+                                email = "user@example.com"
                             self.email_agent.send_notification(
-                                function_args["properties"].get("email", "user@example.com"),
+                                email,
                                 notification["subject"],
                                 notification["body"],
                                 notification["is_html"]
                             )
+                    # elif function_name == "update_lead":
+                    #     output = self.hubspot_agent.update_lead(
+                    #         function_args["lead_id"],
+                    #         function_args["properties"]
+                    #     )
+                        
+                    #     # If lead was updated successfully, send notification
+                    #     if output["status"] == "success":
+                    #         notification = self.email_agent.create_update_notification(function_args["properties"])
+                    #         self.email_agent.send_notification(
+                    #             function_args["properties"].get("email", "user@example.com"),
+                    #             notification["subject"],
+                    #             notification["body"],
+                    #             notification["is_html"]
+                    #         )
                     elif function_name == "get_all_leads":
                         limit = function_args.get("limit", 10)
                         output = self.hubspot_agent.get_all_leads(limit)

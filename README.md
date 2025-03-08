@@ -17,7 +17,7 @@ This project implements a multi-agent AI system for automating workflows in HubS
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/yourusername/hubspot-workflow-automation.git](https://github.com/Ch-Jameel/HubSpot-Workflow-Automation.git)
+git clone https://github.com/Ch-Jameel/HubSpot-Workflow-Automation.git
 cd hubspot-workflow-automation
 ```
 

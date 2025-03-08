@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ### 3. Configure API Keys
 
-Create a `config.json` file in the root directory with the following structure:
+Update the json with the actual keys
 
 ```json
 {
@@ -48,11 +48,6 @@ Create a `config.json` file in the root directory with the following structure:
   }
 }
 ```
-
-Alternatively, you can set these values as environment variables:
-- `OPENAI_API_KEY`
-- `HUBSPOT_API_KEY`
-- `EMAIL_PASSWORD`
 
 ### 4. Running the Application
 
@@ -102,18 +97,3 @@ All errors are logged for troubleshooting.
 - "Check if we have a lead with email john@acme.com"
 - "Update the lead for sarah@example.com with a new phone number 555-123-4567"
 - "Get a list of our recent leads"
-
-## Dependencies
-
-- OpenAI Python SDK
-- Requests library for HTTP requests
-- Standard Python libraries (json, smtplib, etc.)
-
-## Requirements File
-
-Create a `requirements.txt` file with:
-
-```
-openai>=1.1.0
-requests>=2.28.0
-```

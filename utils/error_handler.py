@@ -10,7 +10,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class AgentError(Exception):
-    """Base exception for all agent-related errors"""
+    """Base exception for all agent related errors"""
     pass
 
 class HubspotError(AgentError):

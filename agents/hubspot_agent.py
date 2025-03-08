@@ -3,7 +3,7 @@ from utils.error_handler import HubspotError, handle_agent_errors
 
 class HubspotAgent:
     """
-    Agent responsible for interacting with the HubSpot API
+    HubspotAgent responsible for interacting with the HubSpot API
     """
     
     def __init__(self, config):

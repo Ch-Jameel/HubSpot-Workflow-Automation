@@ -3,7 +3,7 @@ import os
 
 def load_config(config_path):
     """
-    Load configuration from a JSON file
+    configuration variable load from a JSON file
     
     Args:
         config_path (str): Path to the configuration file

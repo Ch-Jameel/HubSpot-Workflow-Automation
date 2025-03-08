@@ -5,7 +5,7 @@ from utils.error_handler import EmailError, handle_agent_errors
 
 class EmailAgent:
     """
-    Agent responsible for sending email notifications
+    EmailAgent responsible for sending email notifications
     """
     
     def __init__(self, config):

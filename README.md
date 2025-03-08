@@ -70,12 +70,10 @@ project/
 ├── app.py                   # Main application entry point
 ├── config.json              # Configuration file for API keys
 ├── agents/
-│   ├── __init__.py
 │   ├── orchestrator.py      # Global Orchestrator Agent
 │   ├── hubspot_agent.py     # HubSpot Agent for CRM operations
 │   └── email_agent.py       # Email Agent for notifications
 ├── utils/
-│   ├── __init__.py
 │   ├── config_loader.py     # Utility to load configuration
 │   └── error_handler.py     # Common error handling
 └── README.md                # Documentation
